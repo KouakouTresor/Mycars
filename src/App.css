@@ -1,13 +1,16 @@
-.App {
-  text-align: center;
+body{
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  
+}
+button{
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+
 }
 
-
-.car{
-background-color: pink;
-width: 400px;
-margin: 5px auto;
-padding: 10px;
+.App {
+  text-align: center;
 }
 
 .styled{
@@ -15,6 +18,25 @@ padding: 10px;
   text-transform: uppercase;
 
 }
+
+.table{
+  width:60%;
+  margin: 20px auto
+}
+.table th{
+  background-color: rgb(78, 187, 102);
+  color: #fff
+}
+.table th, td{
+border: 1px solid #ddd;
+padding: 20px;
+text-align: center;
+
+}
+.table tr:hover{
+  background-color: #ddd;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

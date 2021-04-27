@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Car from './Car'
 
 class MyCars extends Component {
@@ -17,7 +17,7 @@ class MyCars extends Component {
     changeTitre = (e) => {
         e.preventDefault()
         this.setState({
-            titre: "Mon noveau catalogue"
+            titre: "Mon nouveau catalogue"
         })
 
     }
@@ -76,31 +76,39 @@ class MyCars extends Component {
     render() {
         const yearDate = new Date().getFullYear()
         return (
-            <div className="myCars">
+            <Fragment className="myCars">
                 <h1 onMouseOver={this.styleChange}>{this.state.titre}</h1>
                 <p onCopy={this.noCopy} >Blala ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 <button onClick={this.addYear}> - 5 ans </button>
-                {/*     <Car color={this.state.voitures[0].color} year={this.state.voitures[0].year + " ans"} ageCar={yearDate - this.state.voitures[0].year + " ans"}>{this.state.voitures[0].name}</Car>
-                <Car color={this.state.voitures[1].color} year={this.state.voitures[1].year + " ans"} ageCar={yearDate - this.state.voitures[1].year + " ans"}>{this.state.voitures[1].name}</Car>
-                <Car color={this.state.voitures[2].color} year={this.state.voitures[2].year + " ans"} ageCar={yearDate - this.state.voitures[2].year + " ans"}>{this.state.voitures[2].name}</Car> */}
 
-                {
-                    this.state.voitures.map((voiture, index) => {
-                        return (
-                            <div key={index}>
-                                <Car name={voiture.name} color={voiture.color} year={voiture.year + ' ans'} ageCar={yearDate - voiture.year + " ans"}></Car>
-                            </div>
-                        )
+                <table className="table">
+                    
+                        <tr>
+                            <th>Marque</th>
+                            <th>Année</th>
+                            <th>Age</th>
+                            <th>Couleur</th>
+                 </tr>
+                    {
+                        this.state.voitures.map((voiture, index) => {
+                            return (
+                                <Fragment key={index}>
+                                    <Car name={voiture.name} color={voiture.color} year={voiture.year + ' ans'} ageCar={yearDate - voiture.year + " ans"}></Car>
+                                </Fragment>
+                            )
 
-                    })
-                }
-                <button onClick={this.changeTitre}>Changer le nom</button>
-                <button onClick={() => this.changeTitreParam('Titre via param')}>Titre via param</button>
-                <button onClick={this.changeTitreBind.bind(this, 'Titre via Bind')}>Titre via bind</button>
-                <input type="text" onChange={this.handleChange} />
-            </div>
+                        })
+                    }
+                    </table>
+                    <button onClick={this.changeTitre}>Changer le nom</button>
+                    <button onClick={() => this.changeTitreParam('Titre via param')}>Titre via param</button>
+                    <button onClick={this.changeTitreBind.bind(this, 'Titre via Bind')}>Titre via bind</button>
+                    <input type="text" onChange={this.handleChange} />
+                
+            </Fragment>
         )
     }
 }
 
 export default MyCars
+
