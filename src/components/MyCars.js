@@ -59,11 +59,6 @@ class MyCars extends Component {
     }
 
     addYear = () => {
-        /*  const yearCars = this.state.voitures
-          for(let i = 0; i < yearCars.length; i++){
-             yearCars[i].year += 10  
-         } 
-         return this.setState(yearCars)  */
         const yearCars = this.state.voitures.map((param) => {
             return param.year -= 3
         })

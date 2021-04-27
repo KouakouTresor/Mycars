@@ -14,12 +14,7 @@ const Car = ({ year, name, color, ageCar }) => {
             </tr>
         )
     } else {
-        return null /* (
-            <div className="car">
-               Pas de data
-            </div>
-        ) */
-
+        return null
     }
 
 }
